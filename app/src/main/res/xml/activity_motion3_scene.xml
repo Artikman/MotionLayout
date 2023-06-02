@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2000">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="20"
+                motion:motionTarget="@+id/main_desc" />
+        </KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/main_title"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/main_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@id/main_container"
+            motion:layout_constraintEnd_toEndOf="@+id/main_container"
+            motion:layout_constraintStart_toStartOf="@+id/main_container" />
+        <Constraint
+            android:id="@+id/main_desc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            motion:layout_constraintBottom_toBottomOf="@id/main_container"
+            motion:layout_constraintEnd_toEndOf="@+id/main_container"
+            motion:layout_constraintStart_toStartOf="@+id/main_container" />
+        <Constraint
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/imageView"
+            motion:layout_constraintEnd_toEndOf="@id/main_container"
+            motion:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            motion:layout_constraintBottom_toBottomOf="@+id/imageView"
+            motion:layout_constraintEnd_toEndOf="@id/main_container"
+            motion:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </ConstraintSet>
+</MotionScene>
